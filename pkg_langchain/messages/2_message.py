@@ -1,10 +1,3 @@
-
-import sys
-from pathlib import Path
-
-# 添加项目根目录到 Python 路径
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage 
 import models
 # v1.x 新提供
@@ -29,6 +22,6 @@ message = [
     AIMessage("...")
 ]
 
-print(models.models)
-result = models.models.qwen.invoke(message)
+print(models.gpt)
+result = models.gpt.qwen.invoke(message)
 print(f"result: {result}")

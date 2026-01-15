@@ -1,3 +1,6 @@
+openai 对markdown友好
+claude code 对xml友好
+
 你是由OpenAI开发的聊天机器人，请帮助用户回答问题。
 摘要:-
 消息列表:-
