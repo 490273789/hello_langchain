@@ -1,0 +1,15 @@
+{
+    "cSpell.words": [
+        "qwen"
+    ],
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        }
+    },
+    "ruff.lineLength": 88
+}

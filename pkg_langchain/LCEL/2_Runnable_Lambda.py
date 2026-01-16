@@ -1,10 +1,10 @@
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnableLambda, chain
-from langchain_core.output_parsers import StrOutputParser
 from operator import itemgetter
 
-from models import qwen
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnableLambda, chain
 
+from models import qwen
 
 # 可执行匿名函数 RunnableLambda
 
