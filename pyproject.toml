@@ -5,8 +5,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "bs4>=0.0.2",
     "chromadb>=1.4.0",
     "dashscope>=1.25.7",
+    "deepagents>=0.3.6",
+    "docx2txt>=0.9",
     "langchain>=1.2.3",
     "langchain-chroma>=1.1.0",
     "langchain-classic>=1.0.1",
@@ -14,6 +17,7 @@ dependencies = [
     "langchain-deepseek>=1.0.1",
     "langchain-openai>=1.1.7",
     "openai>=2.15.0",
+    "pymupdf>=1.26.7",
     "pypdf>=6.6.0",
 ]
 
