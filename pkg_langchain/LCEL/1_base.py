@@ -1,11 +1,18 @@
-from models import qwen
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
 
-prompt = ChatPromptTemplate([("system", "把用户输入翻译成{language}"), ("user", "{text}")])
+from models import qwen
+
+# Runnable类是一个抽象类（接口），继承了此接口的类都会重写抽象类中的相关方法
+# 他会强制要求LCEL组建实现以下几个标准方法
+# invoke/ainvoke  batch/abactch  stream/astream
+prompt = ChatPromptTemplate(
+    [("system", "把用户输入翻译成{language}"), ("user", "{text}")]
+)
 
 parser = StrOutputParser()
 
+# LCEL
 _chain = prompt | qwen | parser
 
 result = _chain.invoke({"language": "英文", "text": "朝花夕拾"})
