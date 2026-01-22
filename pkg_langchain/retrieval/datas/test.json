@@ -1,0 +1,31 @@
+{
+    "status": "success",
+    "data": {
+        "page": 2,
+        "per_page": 3,
+        "total_pages": 5,
+        "total_items": 14,
+        "items": [
+            {
+                "id": 101,
+                "title": "Understanding JS0NLoader",
+                "content": "This article explains how to parse API responses...",
+                "author": {
+                    "id": "user_1",
+                    "name": "Alice",
+                    "created_at": "2023-10-05T08:12:33Z"
+                }
+            },
+            {
+                "id": 102,
+                "title": "Understanding JS0NLoader2",
+                "content": "This article explains how to parse API responses2...",
+                "author": {
+                    "id": "user_2",
+                    "name": "Alice2",
+                    "created_at": "2023-10-06T08:12:33Z"
+                }
+            }
+        ]
+    }
+}

@@ -18,3 +18,19 @@ _chain = prompt | qwen | parser
 result = _chain.invoke({"language": "英文", "text": "朝花夕拾"})
 
 print(result)
+
+
+# | 关到符的底层实现方式：想要两个类的实例之间能够进行 管道符操作，需要在类当中实现 __or__方法
+class MyClass:
+    def __init__(self, age):
+        self.age = age
+
+    def __or__(self, other):
+        if type(other) != MyClass:
+            return NotImplemented
+        return self.age + other.age
+
+    def __ror__(self, other):
+        if type(other) == MyClass:
+            return NotImplemented
+        return self.age + other.age
