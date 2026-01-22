@@ -6,19 +6,26 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "bs4>=0.0.2",
-    "chromadb>=1.4.0",
-    "dashscope>=1.25.7",
-    "deepagents>=0.3.6",
+    "chromadb>=1.4.1",
+    "dashscope>=1.25.9",
+    "deepagents>=0.3.7",
+    "docx>=0.2.4",
     "docx2txt>=0.9",
+    "ipympl>=0.10.0",
+    "jq>=1.11.0",
     "langchain>=1.2.3",
     "langchain-chroma>=1.1.0",
     "langchain-classic>=1.0.1",
     "langchain-community>=0.4.1",
     "langchain-deepseek>=1.0.1",
     "langchain-openai>=1.1.7",
+    "markdown>=3.10.1",
     "openai>=2.15.0",
+    "pdfminer-six>=20260107",
     "pymupdf>=1.26.7",
     "pypdf>=6.6.0",
+    "python-docx>=1.2.0",
+    "unstructured[pdf]>=0.18.27",
 ]
 
 [dependency-groups]
