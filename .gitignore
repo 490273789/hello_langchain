@@ -9,3 +9,4 @@ chroma_db1/
 
 # Virtual environments
 .venv
+.env

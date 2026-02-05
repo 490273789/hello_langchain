@@ -1,12 +1,14 @@
 from typing import Literal
 
 from langchain.agents import create_agent
+from langchain.chat_models import init_chat_model
 from langchain.tools import tool
 from pydantic import BaseModel, Field
 
-from models import ds
+gpt4mini = init_chat_model(model="gpt-4o-mini", model_provider="openai")
 
 
+# 通过装饰器的方式定义一个tools
 @tool
 def search_database(query: str, limit: int = 10) -> str:
     """在客户数据库中搜索匹配查询的记录
@@ -39,6 +41,7 @@ def cal(expression: str) -> str:
 # 使用 Pydantic 模型或 JSON 模式定义复杂输入
 
 
+# 使用pydantic定义
 class WeatherInput(BaseModel):
     """天气查询的输入."""
 
@@ -66,6 +69,14 @@ def get_weather(
     return result
 
 
+def calc_age(age: int):
+    return age
+
+
+# tool通过tool方法定义
+get_age1 = tool(calc_age, description="计算年龄")
+
+print(f"get_age1: {get_age1.invoke(input={'age': 18})}")
 # JSON 模式
 weather_schema = {
     "type": "object",
@@ -91,7 +102,7 @@ def get_weather1(
 
 
 # agent调用工具
-agent = create_agent(ds, tools=[search, get_weather])
+agent = create_agent(gpt4mini, tools=[search, get_weather])
 response = agent.invoke(
     {"messages": [{"role": "user", "content": "长沙明天天气怎么样?"}]}
 )

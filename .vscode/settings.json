@@ -1,7 +1,8 @@
 {
     "cSpell.words": [
         "checkpointer",
-        "qwen"
+        "qwen",
+        "streamable"
     ],
     "editor.formatOnSave": true,
     "[python]": {
