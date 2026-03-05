@@ -86,7 +86,7 @@ def pretty_print_response(message: Any, view: str = "all") -> None:
                 )
             )
 
-        if view in {"all", "zen", "json"}:
+        if view in {"all", "zen", "json", "ms"}:
             if has_model_dump:
                 payload = _to_jsonable(message.model_dump())
                 console.print(
