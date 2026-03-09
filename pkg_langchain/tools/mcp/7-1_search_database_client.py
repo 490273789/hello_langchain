@@ -7,6 +7,7 @@ from langchain_core.messages import HumanMessage, ToolMessage
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
 from models import ds
+from tools.format import pretty_print_response
 
 
 # /Users/ethan/workspace/Python/hello_langchain/pkg_langchain/tools/mcp/7-1_sear_database_client.py
@@ -58,8 +59,9 @@ async def main():
 
     for i in range(max_iterations):
         print_status("⏳ 正在等待 AI 思考...", Colors.BG_GREEN)
-
+        pretty_print_response(messages, view="full")
         response = await model_with_tools.ainvoke(messages)
+
         messages.append(response)
 
         # 检查是否有工具调用
