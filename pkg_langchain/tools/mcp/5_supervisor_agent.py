@@ -12,6 +12,7 @@ from models import ds
 
 dotenv.load_dotenv()
 
+
 # llm = init_chat_model(
 #     model="gpt-4o",
 #     model_provider="openai",
@@ -42,7 +43,15 @@ class SearchSubAgent:
                     },  # https://bailian.console.aliyun.com/?tab=mcp#/mcp-market/detail/WebSearch
                     "amap-maps-streamableHTTP": {
                         "transport": "http",
-                        "url": "https://mcp.amap.com/mcp?key=d1f0120dc4b53f42e1ad68f6eff08a79",
+                        "url": f"https://mcp.amap.com/mcp?key={os.getenv('AMAP_MAPS_API_KEY')}",
+                    },
+                    "filesystem": {
+                        "command": "npx",
+                        "args": [
+                            "-y",
+                            "@modelcontextprotocol/server-filesystem",
+                            *(p for p in os.getenv("ALLOWED_PATHS").split(",") if p),
+                        ],
                     },
                 }
             ).get_tools()
