@@ -1,0 +1,10 @@
+{
+    "servers": {
+        // "my-mcp-server": {
+        //     "command": "/Users/ethan/workspace/Python/hello_langchain/.venv/bin/python",
+        //     "args": [
+        //         "/Users/ethan/workspace/Python/hello_langchain/pkg_langchain/tools/mcp/7_search_database.py"
+        //     ]
+        // }
+    }
+}

@@ -9,9 +9,8 @@ tool_mcp = FastMCP("tool server")
 resource_mcp = FastMCP("resource server")
 prompt_mcp = FastMCP("prompt server")
 
+
 # 为tool_mcp 实例添加工具
-
-
 @tool_mcp.tool()
 def add(a: int, b: int):
     return a + b
