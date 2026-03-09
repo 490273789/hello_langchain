@@ -13,5 +13,6 @@
             "source.organizeImports.ruff": "explicit"
         }
     },
-    "ruff.lineLength": 88
+    "ruff.lineLength": 88,
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
 }
