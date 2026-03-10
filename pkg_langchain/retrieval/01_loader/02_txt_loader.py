@@ -8,3 +8,9 @@ loader = TextLoader(file_path)
 docs = loader.load()
 print(docs[0].metadata)
 print(docs[0].page_content)
+
+# 用 RecursiveCharacterTextSplitter.fromLanguage 这个方法，指定语言，就会按照对应的语法来分割。
+# const codeSplitter = RecursiveCharacterTextSplitter.fromLanguage('js', {
+#     chunkSize: 300,
+#     chunkOverlap: 60,
+# })

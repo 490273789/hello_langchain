@@ -3,7 +3,7 @@ import os
 from langchain_community.embeddings import DashScopeEmbeddings
 
 embeddings = DashScopeEmbeddings(
-    model="text-embedding-v1", dashscope_api_key=os.getenv("DASHSCOPE_API_KEY")
+    model="text-embedding-v4", dashscope_api_key=os.getenv("DASHSCOPE_API_KEY")
 )
 # 使用嵌入模型
 # 对单个文本进行嵌入
