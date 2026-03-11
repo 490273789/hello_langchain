@@ -16,7 +16,6 @@ from .data import diary_contents
 
 COLLECTION_NAME = "ai_diary"
 VECTOR_DIM = 1024
-MILVUS_ADDRESS = "http://140.143.164.230:19530"
 
 
 @lru_cache(maxsize=1)
@@ -32,8 +31,9 @@ def get_embedding_model() -> OpenAIEmbeddings:
 
 # 创建Milvus客户端
 client = MilvusClient(
-    uri=MILVUS_ADDRESS,
-    token="root:Milvus",
+    uri=os.getenv("MILVUS_ADDRESS"),
+    user=os.getenv("MILVUS_USER"),
+    password=os.getenv("MILVUS_PWD"),
 )
 
 
@@ -274,12 +274,14 @@ def main() -> None:
 
         # update_data()
 
-        delete_data()
+        # delete_data()
 
     except MilvusException as error:
         print(f"Milvus error: {error}")
     except Exception as error:  # noqa: BLE001
         print(f"Error: {error}")
+    finally:
+        client.release_collection(collection_name=COLLECTION_NAME)
 
 
 if __name__ == "__main__":
