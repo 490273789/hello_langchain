@@ -21,7 +21,7 @@ def _to_jsonable(obj: Any) -> Any:
         return str(obj)
 
 
-def pretty_print_response(message: Any, view: str = "all") -> None:
+def pretty_print(message: Any, view: str = "all") -> None:
     """Pretty print LangChain-style response objects.
 
     Args:
@@ -51,21 +51,21 @@ def pretty_print_response(message: Any, view: str = "all") -> None:
 
         console = Console()
 
-        if view in {"all", "zen", "content"}:
-            if final_ai_message is not None:
-                console.print(
-                    Panel.fit(
-                        str(getattr(final_ai_message, "content", "")),
-                        title="final_ai_content",
-                        border_style="cyan",
-                    )
-                )
-            else:
-                console.print(
-                    Panel.fit(
-                        "<no AIMessage>", title="final_ai_content", border_style="red"
-                    )
-                )
+        # if view in {"all", "zen", "content"}:
+        #     if final_ai_message is not None:
+        #         console.print(
+        #             Panel.fit(
+        #                 str(getattr(final_ai_message, "content", "")),
+        #                 title="final_ai_content",
+        #                 border_style="cyan",
+        #             )
+        #         )
+        #     else:
+        #         console.print(
+        #             Panel.fit(
+        #                 "<no AIMessage>", title="final_ai_content", border_style="red"
+        #             )
+        #         )
 
         if view in {"all", "zen", "content"} and content:
             console.print(Panel.fit(str(content), title="content", border_style="cyan"))
