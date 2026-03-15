@@ -7,7 +7,7 @@ from langchain_community.embeddings import DashScopeEmbeddings
 dotenv.load_dotenv()
 
 qwen = init_chat_model(
-    model="qwen3.5-flash",
+    model=os.getenv("MODEL_NAME"),
     model_provider="openai",
     base_url=os.getenv("DASHSCOPE_BASE_URL"),
     api_key=os.getenv("DASHSCOPE_API_KEY"),
