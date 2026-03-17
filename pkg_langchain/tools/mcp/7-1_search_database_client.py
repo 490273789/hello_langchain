@@ -12,7 +12,7 @@ from langchain_core.tools.base import ToolException
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
 from models import qwen
-from tools.format import pretty_print
+from tools.format_print import pretty_print
 
 dotenv.load_dotenv()
 

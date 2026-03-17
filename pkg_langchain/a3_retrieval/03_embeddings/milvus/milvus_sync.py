@@ -10,7 +10,7 @@ from pymilvus import (
 )
 
 from models import qwen
-from tools.format import pretty_print
+from tools.format_print import pretty_print
 
 from .data import diary_contents
 

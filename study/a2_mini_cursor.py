@@ -6,7 +6,7 @@ from langchain.messages import HumanMessage, SystemMessage
 
 from models import qwen
 from tools.cus_tools import execute_command, list_directory, read_file, write_file
-from tools.format import pretty_print
+from tools.format_print import pretty_print
 
 tools = [read_file, write_file, execute_command, list_directory]
 

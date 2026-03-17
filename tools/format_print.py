@@ -34,13 +34,13 @@ def pretty_print(message: Any, view: str = "all") -> None:
     def is_ai_message(msg: Any) -> bool:
         return msg.__class__.__name__ == "AIMessage"
 
-    state_messages = message.get("messages", []) if isinstance(message, dict) else []
+    # state_messages = message.get("messages", []) if isinstance(message, dict) else []
     content = getattr(message, "content", "")
     response_metadata = getattr(message, "response_metadata", {})
     usage_metadata = getattr(message, "usage_metadata", None)
     has_model_dump = hasattr(message, "model_dump")
-    ai_messages = [m for m in state_messages if is_ai_message(m)]
-    final_ai_message = ai_messages[-1] if ai_messages else None
+    # ai_messages = [m for m in state_messages if is_ai_message(m)]
+    # final_ai_message = ai_messages[-1] if ai_messages else None
 
     # Optional dependency: rich for better terminal readability.
     try:
