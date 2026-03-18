@@ -6,7 +6,7 @@ from langchain.messages import HumanMessage, SystemMessage
 
 from models import qwen
 from tools.cus_tools import execute_command, list_directory, read_file, write_file
-from tools.format_print import pretty_print
+from tools.format_print import pretty_print_ai
 
 tools = [read_file, write_file, execute_command, list_directory]
 
@@ -62,4 +62,4 @@ query = """
 2. 使用 pnpm run dev 启动服务器
 """
 # print(run_agent())
-pretty_print(asyncio.run(run_agent(query)), view="zen")
+pretty_print_ai(asyncio.run(run_agent(query)), view="zen")

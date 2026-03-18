@@ -4,7 +4,7 @@ from langchain_core.messages import HumanMessage, SystemMessage, ToolMessage
 
 from models import ds
 from tools.all_tools import TOOLS
-from tools.format_print import pretty_print
+from tools.format_print import pretty_print_ai
 
 # model = ChatOpenAI(
 #     model="qwen-plus",
@@ -46,7 +46,7 @@ def run_agent_with_tools(query: str, max_iterations: int = 30) -> str:
         print("\033[30;43m[agent] ⏳ 正在等待 AI 思考...\033[0m")
         response = model.invoke(messages)
         print("\033[30;43m[agent] ⏳ 思考完成...\033[0m")
-        pretty_print(response, view="ms")
+        pretty_print_ai(response, view="ms")
         messages.append(response)
 
         tool_calls = getattr(response, "tool_calls", None) or []

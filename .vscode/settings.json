@@ -15,4 +15,8 @@
     },
     "ruff.lineLength": 88,
     "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "python": "cd \"$workspaceRoot\" && rel=\"$fullFileName\" && rel=\"${rel#\\\"}\" && rel=\"${rel%\\\"}\" && case \"$rel\" in \"$workspaceRoot\"/*) rel=\"${rel#$workspaceRoot/}\" ;; *) echo \"Current file is outside workspace; cannot convert to module path.\"; exit 1 ;; esac && mod=\"${rel%.py}\" && mod=\"${mod//\\//.}\" && uv run -m \"$mod\""
+    }
 }

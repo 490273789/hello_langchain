@@ -504,7 +504,7 @@ for step in agent.stream(
     {"messages": [{"role": "user", "content": query}]},
     stream_mode="values",
 ):
-    step["messages"][-1].pretty_print()
+    step["messages"][-1].pretty_print_ai()
 ```
 
 ---

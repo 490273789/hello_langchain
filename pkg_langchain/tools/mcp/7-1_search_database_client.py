@@ -12,7 +12,7 @@ from langchain_core.tools.base import ToolException
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
 from models import qwen
-from tools.format_print import pretty_print
+from tools.format_print import pretty_print_ai
 
 dotenv.load_dotenv()
 
@@ -164,7 +164,7 @@ async def main():
         tool_calls = getattr(response, "tool_calls", [])
 
         if not tool_calls:
-            pretty_print(messages, view="full")
+            pretty_print_ai(messages, view="full")
             print(f"\n✨ AI 最终回复:\n{response.content}\n")
             return response.content
 

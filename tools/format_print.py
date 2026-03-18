@@ -2,6 +2,11 @@ import json
 from pprint import pprint
 from typing import Any
 
+from rich.console import Console
+from rich.json import JSON
+from rich.panel import Panel
+from rich.pretty import Pretty
+
 
 def _to_jsonable(obj: Any) -> Any:
     """Recursively convert objects into JSON-serializable structures."""
@@ -21,7 +26,12 @@ def _to_jsonable(obj: Any) -> Any:
         return str(obj)
 
 
-def pretty_print(message: Any, view: str = "all") -> None:
+def pretty_print(content: str, title: str = "print"):
+    console = Console()
+    console.print(Panel.fit(str(content), title=title, border_style="cyan"))
+
+
+def pretty_print_ai(message: Any, view: str = "all") -> None:
     """Pretty print LangChain-style response objects.
 
     Args:
@@ -29,26 +39,14 @@ def pretty_print(message: Any, view: str = "all") -> None:
         view: One of "all", "content", "meta", "json".
     """
 
-    # Support both a single message object and agent state dict:
-    # {"messages": [SystemMessage, HumanMessage, AIMessage, ToolMessage, ...]}
-    def is_ai_message(msg: Any) -> bool:
-        return msg.__class__.__name__ == "AIMessage"
-
     # state_messages = message.get("messages", []) if isinstance(message, dict) else []
     content = getattr(message, "content", "")
     response_metadata = getattr(message, "response_metadata", {})
     usage_metadata = getattr(message, "usage_metadata", None)
     has_model_dump = hasattr(message, "model_dump")
-    # ai_messages = [m for m in state_messages if is_ai_message(m)]
-    # final_ai_message = ai_messages[-1] if ai_messages else None
 
     # Optional dependency: rich for better terminal readability.
     try:
-        from rich.console import Console
-        from rich.json import JSON
-        from rich.panel import Panel
-        from rich.pretty import Pretty
-
         console = Console()
 
         # if view in {"all", "zen", "content"}:

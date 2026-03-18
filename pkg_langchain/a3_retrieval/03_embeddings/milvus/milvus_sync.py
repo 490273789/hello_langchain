@@ -10,7 +10,7 @@ from pymilvus import (
 )
 
 from models import qwen
-from tools.format_print import pretty_print
+from tools.format_print import pretty_print_ai
 
 from .data import diary_contents
 
@@ -247,7 +247,7 @@ def search_rag(question: str, limit: int = 2):
 
     result = qwen.invoke(prompt)
 
-    pretty_print(result, view="content")
+    pretty_print_ai(result, view="content")
 
 
 def main() -> None:

@@ -4,7 +4,7 @@ from langchain.tools import tool
 from pydantic import BaseModel, Field
 
 from models import qwen
-from tools.format_print import pretty_print
+from tools.format_print import pretty_print_ai
 
 # from langchain_core.tools import tool
 # from langchain_core.messages import HumanMessage,AIMessage,ToolMessage
@@ -55,5 +55,4 @@ def invoke(is_agent: bool = False):
     return response
 
 
-print(invoke())
-pretty_print(invoke(), view="zen")
+pretty_print_ai(invoke(), view="zen")
