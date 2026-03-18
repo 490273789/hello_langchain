@@ -164,7 +164,7 @@ async def main():
         tool_calls = getattr(response, "tool_calls", [])
 
         if not tool_calls:
-            pretty_print_ai(messages, view="full")
+            pretty_print_ai(messages, view="message")
             print(f"\n✨ AI 最终回复:\n{response.content}\n")
             return response.content
 

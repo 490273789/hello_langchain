@@ -84,13 +84,13 @@ def pretty_print_ai(message: Any, view: str = "all") -> None:
                 )
             )
 
-        if view in {"all", "zen", "json", "full"}:
+        if view in {"all", "zen", "json", "message"}:
             if has_model_dump:
                 payload = _to_jsonable(message.model_dump())
                 console.print(
                     Panel.fit(
                         JSON.from_data(payload),
-                        title="full_message_json",
+                        title="message_json",
                         border_style="magenta",
                     )
                 )
@@ -98,7 +98,7 @@ def pretty_print_ai(message: Any, view: str = "all") -> None:
                 console.print(
                     Panel.fit(
                         Pretty(message),
-                        title="full_message_repr",
+                        title="message_repr",
                         border_style="magenta",
                     )
                 )
@@ -107,7 +107,7 @@ def pretty_print_ai(message: Any, view: str = "all") -> None:
             console.print(
                 Panel.fit(
                     JSON.from_data(_to_jsonable(message)),
-                    title="full_state_json",
+                    title="state_json",
                     border_style="magenta",
                 )
             )
