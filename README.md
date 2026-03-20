@@ -15,3 +15,8 @@ semantic  ->  向量
 
 ## 命令行启动FastAPI
 uvicorn main:app --reload
+
+是什么
+能干什么
+解决了什么问题
+怎么用

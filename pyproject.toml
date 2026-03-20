@@ -12,6 +12,7 @@ dependencies = [
     "docx>=0.2.4",
     "docx2txt>=0.9",
     "fastapi>=0.135.1",
+    "grandalf>=0.8",
     "ipympl>=0.10.0",
     "jq>=1.11.0",
     "langchain>=1.2.12",

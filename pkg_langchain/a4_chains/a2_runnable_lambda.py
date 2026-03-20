@@ -6,7 +6,7 @@ from langchain_core.runnables import RunnableLambda, chain
 
 from models import qwen
 
-# 可执行匿名函数 RunnableLambda
+# 可执行匿名函数 RunnableLambda,将python融入到Runnable中
 
 # itemgetter
 d = {"name": "wsn", "age": "18"}
@@ -45,9 +45,9 @@ chain2 = (
         "a": itemgetter("name")
         | RunnableLambda(length),  # a = 3 RunnableLambda 一个参数写法
         "b": {"t1": itemgetter("name"), "t2": itemgetter("sex")}
-        | RunnableLambda(lambda x: mul(**x)),  # c = 12 RunnableLambda 多参数写法
+        | RunnableLambda(lambda x: mul(**x)),  # b = 12 RunnableLambda 多参数写法
         "c": {"t1": itemgetter("name"), "t2": itemgetter("sex")}
-        | mul_length,  # b = 12  chain写法
+        | mul_length,  # c = 12  chain写法
     }
     | chain1
     | StrOutputParser()
