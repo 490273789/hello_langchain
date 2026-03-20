@@ -8,11 +8,10 @@ from pydantic import BaseModel, Field
 gpt4mini = init_chat_model(model="gpt-4o-mini", model_provider="openai")
 
 
-# 通过装饰器的方式定义一个tools
+# 通过装饰器的方式定义一个tools, 这个函数就可以用invoke方法了
 @tool
 def search_database(query: str, limit: int = 10) -> str:
     """在客户数据库中搜索匹配查询的记录
-
     Args:
         query: 要查找的搜索词
         limit: 返回最大结果数

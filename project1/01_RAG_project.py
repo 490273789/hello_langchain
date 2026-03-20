@@ -11,7 +11,7 @@ from models import qwen
 索引化，构建知识库
 """
 
-# 家在文档
+# 加载文档
 
 loader = Docx2txtLoader("./datas/行业.docx")
 
