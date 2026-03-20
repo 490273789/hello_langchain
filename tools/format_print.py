@@ -68,23 +68,23 @@ def pretty_print_ai(message: Any, view: str = "all") -> None:
         if view in {"all", "zen", "content"} and content:
             console.print(Panel.fit(str(content), title="content", border_style="cyan"))
 
-        if view in {"all", "zen", "meta"} and response_metadata:
-            console.print(
-                Panel.fit(
-                    Pretty(response_metadata),
-                    title="response_metadata",
-                    border_style="green",
-                )
-            )
-            console.print(
-                Panel.fit(
-                    Pretty(usage_metadata),
-                    title="usage_metadata",
-                    border_style="yellow",
-                )
-            )
+        # if view in {"all", "zen", "meta"} and response_metadata:
+        #     console.print(
+        #         Panel.fit(
+        #             Pretty(response_metadata),
+        #             title="response_metadata",
+        #             border_style="green",
+        #         )
+        #     )
+        #     console.print(
+        #         Panel.fit(
+        #             Pretty(usage_metadata),
+        #             title="usage_metadata",
+        #             border_style="yellow",
+        #         )
+        #     )
 
-        if view in {"all", "zen", "json", "message"}:
+        if view in {"all", "zen", "message"}:
             if has_model_dump:
                 payload = _to_jsonable(message.model_dump())
                 console.print(

@@ -13,7 +13,7 @@ def init_llm_client() -> BaseChatModel:
     llm = init_chat_model(
         model=os.getenv("MODEL_NAME"),
         model_provider="openai",
-        base_url=os.getenv("DASHSCOPE_BASE_URL"),
-        api_key=os.getenv("DASHSCOPE_API_KEY"),
+        base_url=os.getenv("MODEL_BASE_URL"),
+        api_key=os.getenv("MODEL_KEY"),
     )
     return llm

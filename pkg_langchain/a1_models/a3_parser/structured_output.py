@@ -1,62 +1,74 @@
-from langchain_core.output_parsers import JsonOutputParser
+"""
+PydanticOutputParser 是 LangChain 输出解析器体系中最常用、最强大的结构化解析器之一。
+它与 JsonOutputParser 类似，但功能更强 —— 能直接基于 Pydantic 模型 定义输出结构，
+并利用其类型校验与自动文档能力。
+对于结构更复杂、具有强类型约束的需求，PydanticOutputParser 则是最佳选择。
+它结合了Pydantic模型的强大功能，提供了类型验证、数据转换等高级功能
+"""
+
+from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
-from tools import init_llm_client, logger, pretty_print, pretty_print_ai
-
-"""
-JsonOutputParser，即JSON输出解析器，
-是一种用于将大模型的自由文本输出转换为结构化JSON数据的工具。
-
-本案例是：借助JsonOutputParser的get_format_instructions() ，
-生成格式说明，指导模型输出JSON 结构
-"""
+from tools import init_chat_client, logger, pretty_print_ai
 
 
-class Person(BaseModel):
-    """
-    使用pydantic定义一个新闻结构化的数据模型类
-    属性:
-        time (str): 新闻发生的时间
-        person (str): 新闻涉及的人物
-        event (str): 发生的具体事件
-    """
+class Product(BaseModel):
+    name: str = Field(description="产品名称")
+    category: str = Field(description="产品类别")
+    description: str = Field(description="产品简介")
 
-    time: str = Field(description="时间")  #
-    person: str = Field(description="人物")
-    event: str = Field(description="事件")
+    @field_validator("description")
+    def validate_description(cls, value):
+        """
+        验证产品简介字段的长度
+        参数:
+            value (str): 待验证的产品简介文本
+        返回:
+            str: 验证通过的产品简介文本
+        异常:
+            ValueError: 当产品简介长度小于10个字符时抛出
+        """
+        if len(value) < 10:
+            raise ValueError("产品简介长度必须大于等于10")
+        return value
 
 
-# 创建JSON输出解析器，用于将model输出解析为Person对象
-parser = JsonOutputParser(pydantic_object=Person)
+# 创建Pydantic输出解析器实例，用于解析模型输出为Product对象
+parser = PydanticOutputParser(pydantic_object=Product)
 
-# 获取格式化指令，告诉model如何输出符合要求的JSON格式
+# 获取格式化指令，用于指导模型输出符合Product模型的JSON格式
 format_instructions = parser.get_format_instructions()
-pretty_print(format_instructions, "parser.get_format_instructions")
 
-# 创建聊天提示模板，定义系统角色和用户输入格式
-chat_prompt = ChatPromptTemplate.from_messages(
+# 创建聊天提示模板，包含系统消息和人类消息
+prompt_template = ChatPromptTemplate.from_messages(
     [
-        ("system", "你是一个AI助手，你只能输出结构化JSON数据。"),
-        ("human", "请生成一个关于{topic}的新闻。{format_instructions}"),
+        ("system", "你是一个AI助手，你只能输出结构化的json数据\n{format_instructions}"),
+        ("human", "请你输出标题为：{topic}的新闻内容"),
     ]
 )
 
-# 格式化提示词，填入具体主题和格式化指令
-prompt = chat_prompt.format_messages(
-    topic="小米su7跑车", format_instructions=format_instructions
+# 格式化提示消息，填充主题和格式化指令
+prompt = prompt_template.format_messages(
+    topic="华为Mate X7", format_instructions=format_instructions
 )
 
-pretty_print_ai(prompt, view="message")
+# 记录格式化后的提示消息
+logger.info(prompt)
 
-model = init_llm_client()
+# 创建模型
+model = init_chat_client()
 
+# 调用模型获取结果
 result = model.invoke(prompt)
-pretty_print_ai(result, view="message")
+pretty_print_ai(result, "message")
 
-# 使用解析器将模型输出解析为结构化数据
+
+# 使用解析器将模型结果解析为Product对象
 response = parser.invoke(result)
-pretty_print(response, "解析后的结构化结果")
+
+# 打印解析后的结构化结果
+logger.info(f"解析后的结构化结果:\n{response}")
 
 # 打印类型
 logger.info(f"结果类型: {type(response)}")
