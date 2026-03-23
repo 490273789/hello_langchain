@@ -1,10 +1,5 @@
 # LangChain 1.x 知识体系总览
 
-更新时间：2026-03-15  
-适用范围：LangChain 1.x（以 Python 官方文档为主，补充 LangGraph / LangSmith / Deep Agents 的关系）
-
----
-
 ## 1. 先给一个总判断
 
 LangChain 1.x 不再适合按“零散功能点”去记忆，而更适合按下面 5 层来理解：
