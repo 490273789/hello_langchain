@@ -849,7 +849,7 @@ wheels = [
 
 [[package]]
 name = "deepagents"
-version = "0.4.11"
+version = "0.4.12"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain" },
@@ -858,9 +858,9 @@ dependencies = [
     { name = "langchain-google-genai" },
     { name = "wcmatch" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5c/e5/1dcb9e466d887bc42ddad66faa769d1c06b11ca751d1c43b4f2e5da3b1c8/deepagents-0.4.11.tar.gz", hash = "sha256:6ada9bd3b136bae294aa1520575bf85e806c0514807d6e3bf43c7b3d08b44306", size = 90529, upload-time = "2026-03-13T21:34:46.768Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/5a/ef/0b2ccd5e4f40c1554145de17a7f3ee41994de1dda3ea36abe28600f1a3cf/deepagents-0.4.12.tar.gz", hash = "sha256:fc24a691e5cba00920ac4fa1d94f8147d6081fe513ed22bdba7da469288681c3", size = 91870, upload-time = "2026-03-20T14:54:29.904Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/78/45/4d78759b991535f7ef7461ac25aad79c423f5ab3cb53ef75dbeff4e9617b/deepagents-0.4.11-py3-none-any.whl", hash = "sha256:bc5b973696f5e9f9ccea1c095a4b4af6bd057b99befa76a596fc3c02380ea7cb", size = 102588, upload-time = "2026-03-13T21:34:45.409Z" },
+    { url = "https://files.pythonhosted.org/packages/5e/77/63a5cb4e3a8871c4a52d600661a232c26b35f52931ee551c3adc38eeacf6/deepagents-0.4.12-py3-none-any.whl", hash = "sha256:76a272bac25607c5ef8c5adc876e391da945f1107b504686964dfdb6afdc1ebb", size = 104455, upload-time = "2026-03-20T14:54:28.786Z" },
 ]
 
 [[package]]
@@ -941,7 +941,7 @@ wheels = [
 
 [[package]]
 name = "fastapi"
-version = "0.135.1"
+version = "0.135.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "annotated-doc" },
@@ -950,9 +950,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "typing-inspection" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e7/7b/f8e0211e9380f7195ba3f3d40c292594fd81ba8ec4629e3854c353aaca45/fastapi-0.135.1.tar.gz", hash = "sha256:d04115b508d936d254cea545b7312ecaa58a7b3a0f84952535b4c9afae7668cd", size = 394962, upload-time = "2026-03-01T18:18:29.369Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c4/73/5903c4b13beae98618d64eb9870c3fac4f605523dd0312ca5c80dadbd5b9/fastapi-0.135.2.tar.gz", hash = "sha256:88a832095359755527b7f63bb4c6bc9edb8329a026189eed83d6c1afcf419d56", size = 395833, upload-time = "2026-03-23T14:12:41.697Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e4/72/42e900510195b23a56bde950d26a51f8b723846bfcaa0286e90287f0422b/fastapi-0.135.1-py3-none-any.whl", hash = "sha256:46e2fc5745924b7c840f71ddd277382af29ce1cdb7d5eab5bf697e3fb9999c9e", size = 116999, upload-time = "2026-03-01T18:18:30.831Z" },
+    { url = "https://files.pythonhosted.org/packages/8f/ea/18f6d0457f9efb2fc6fa594857f92810cadb03024975726db6546b3d6fcf/fastapi-0.135.2-py3-none-any.whl", hash = "sha256:0af0447d541867e8db2a6a25c23a8c4bd80e2394ac5529bd87501bbb9e240ca5", size = 117407, upload-time = "2026-03-23T14:12:43.284Z" },
 ]
 
 [[package]]
@@ -1368,14 +1368,14 @@ requires-dist = [
     { name = "bs4", specifier = ">=0.0.2" },
     { name = "chromadb", specifier = ">=1.5.5" },
     { name = "dashscope", specifier = ">=1.25.14" },
-    { name = "deepagents", specifier = ">=0.4.11" },
+    { name = "deepagents", specifier = ">=0.4.12" },
     { name = "docx", specifier = ">=0.2.4" },
     { name = "docx2txt", specifier = ">=0.9" },
-    { name = "fastapi", specifier = ">=0.135.1" },
+    { name = "fastapi", specifier = ">=0.135.2" },
     { name = "grandalf", specifier = ">=0.8" },
     { name = "ipympl", specifier = ">=0.10.0" },
     { name = "jq", specifier = ">=1.11.0" },
-    { name = "langchain", specifier = ">=1.2.12" },
+    { name = "langchain", specifier = ">=1.2.13" },
     { name = "langchain-chroma", specifier = ">=1.1.0" },
     { name = "langchain-classic", specifier = ">=1.0.3" },
     { name = "langchain-community", specifier = ">=0.4.1" },
@@ -1925,16 +1925,16 @@ wheels = [
 
 [[package]]
 name = "langchain"
-version = "1.2.12"
+version = "1.2.13"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core" },
     { name = "langgraph" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d8/1d/1af2fc0ac084d4781778b7846b1aed62e05006bf2d73fdf84ac3a8f5225c/langchain-1.2.12.tar.gz", hash = "sha256:ed705b5b293799f7e3e394387f398a1b71707542758283206c8c21415759d991", size = 566444, upload-time = "2026-03-11T22:21:00.712Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/81/e5/56fdeedaa0ef1be3c53721d382d9e21c63930179567361610ea6102c04ea/langchain-1.2.13.tar.gz", hash = "sha256:d566ef67c8287e7f2e2df3c99bf3953a6beefd2a75a97fe56ecce905e21f3ef4", size = 573819, upload-time = "2026-03-19T17:16:07.641Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ca/51/09bb1cfb0b57ae9440ca56cc576e4dc792f83d030eef7637d2c516dcb0a0/langchain-1.2.12-py3-none-any.whl", hash = "sha256:60eff184b8f92c2610f5a4c9a97ad339a891adb01901e83e4df8e6c9c69cf852", size = 112373, upload-time = "2026-03-11T22:20:59.508Z" },
+    { url = "https://files.pythonhosted.org/packages/9c/1d/a509af07535d8f4621d77f3ba5ec846ee6d52c59d2239e1385ec3b29bf92/langchain-1.2.13-py3-none-any.whl", hash = "sha256:37d4526ac4b0cdd3d7706a6366124c30dc0771bf5340865b37cdc99d5e5ad9b1", size = 112488, upload-time = "2026-03-19T17:16:06.134Z" },
 ]
 
 [[package]]
