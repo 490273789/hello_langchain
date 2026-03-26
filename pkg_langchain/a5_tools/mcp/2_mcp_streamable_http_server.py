@@ -1,6 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 
-fast_mcp_instance = FastMCP(name="demo_mcp_http")
+fast_mcp_instance = FastMCP(name="demo_mcp_http", host="0.0.0.0", port=8000)
 
 
 @fast_mcp_instance.tool()

@@ -17,13 +17,13 @@ def add(a: int, b: int):
 
 
 # 为resource_mcp实例添加资源
-@resource_mcp.tool()
+@resource_mcp.resource()
 def get_greeting() -> str:
     return "Hello from static resource!"
 
 
 # 为prompt_mcp添加工具
-@prompt_mcp.tool()
+@prompt_mcp.prompt()
 def greet_user(name: str, style: str = "friendly") -> str:
     styles = {
         "friendly": "写一句友善的问候",
