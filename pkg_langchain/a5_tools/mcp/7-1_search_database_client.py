@@ -153,7 +153,6 @@ async def main():
     query = "北京南站附近的酒店，最近的 2 个酒店，拿到酒店图片，打开浏览器，展示每个酒店的图片，每个 tab 一个 url 展示，并且在把那个页面标题改为酒店名"
     messages = [HumanMessage(content=query)]
     max_iterations = 30
-
     for i in range(max_iterations):
         print_status("⏳ 正在等待 AI 思考...", Colors.BG_GREEN)
         response = await model_with_tools.ainvoke(messages)

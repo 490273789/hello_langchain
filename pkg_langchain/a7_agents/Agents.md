@@ -4,7 +4,9 @@
 
 Agent（代理）是 LangChain 中的核心概念之一。简单来说：
 
-> **Agent 是一个在循环中运行工具以实现目标的 LLM 系统**
+> **Agent(决策者) 是一个在循环中运行工具以实现目标的 LLM 系统**
+
+> Agent = LLM + Memory + Tools + Planning + Action
 
 Agent 会持续运行直到满足停止条件：
 - 模型输出最终响应
@@ -23,7 +25,8 @@ Agent 的执行遵循一个循环模式：
 ## 2. 创建基础 Agent
 
 ### 2.1 基本用法
-
+定义工具 -> 构建prompt -> 调用create_agent
+> 一次工具 -> 多工具调用 -> 聚合回答
 ```python
 from langchain.agents import create_agent
 
